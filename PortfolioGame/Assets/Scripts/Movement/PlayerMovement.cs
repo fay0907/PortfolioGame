@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
-
-    // Update is called once per frame
+ 
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -26,5 +26,5 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
     }
-    
+
 }
