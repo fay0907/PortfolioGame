@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Slider healthSlider;
 
+    public Canvas gameOverCanvas; // Assign via Inspector
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -17,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-         healthSlider.value = currentHealth;
+        healthSlider.value = currentHealth;
         Debug.Log("Player took " + damage + " damage. Current health: " + currentHealth);
         if (currentHealth <= 0)
         {
@@ -28,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Died");
+        gameOverCanvas.gameObject.SetActive(true);
         // Add death logic here (e.g., respawn, game over screen)
     }
 }
