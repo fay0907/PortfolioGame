@@ -613,8 +613,8 @@ GameObject:
   - component: {fileID: 349600042}
   - component: {fileID: 349600046}
   - component: {fileID: 349600041}
-  - component: {fileID: 349600047}
   - component: {fileID: 349600048}
+  - component: {fileID: 349600049}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -754,24 +754,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &349600047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349600039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b09315006fe17244b7f8b11cfe04f22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 1
-  attackRange: 5
-  attackPoint: {fileID: 349600045}
-  Enemy:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &349600048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,6 +770,25 @@ MonoBehaviour:
   currentHealth: 0
   healthSlider: {fileID: 1502976828}
   gameOverCanvas: {fileID: 272747070}
+--- !u!114 &349600049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349600039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c9a43bab1573240a45702e995c0c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStratergyName: Idle
+  BaseDamage: 5
+  attackPoint: {fileID: 349600045}
+  attackRange: 5.44
+  Enemy:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1325,7 @@ GameObject:
   - component: {fileID: 884777022}
   - component: {fileID: 884777023}
   - component: {fileID: 884777024}
+  - component: {fileID: 884777025}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -1365,7 +1367,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 14.78
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &884777018
 MeshRenderer:
@@ -1462,7 +1464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884777014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 542d20ec68eadfd43a1a91a9ce32ec1a, type: 3}
   m_Name: 
@@ -1481,7 +1483,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884777014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eed04e361fd8a7d4daf6b752ea812da5, type: 3}
   m_Name: 
@@ -1509,8 +1511,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.720931, z: 1}
+  m_Center: {x: 0, y: 0.8604655, z: 0}
+--- !u!114 &884777025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884777014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b34f544decebc40aa55e2c4c92fe2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 50
+  Name: Tyler
+  type: 0
 --- !u!1 &1172907315
 GameObject:
   m_ObjectHideFlags: 0
