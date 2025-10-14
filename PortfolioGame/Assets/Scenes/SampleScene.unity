@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -610,11 +610,12 @@ GameObject:
   - component: {fileID: 349600045}
   - component: {fileID: 349600044}
   - component: {fileID: 349600043}
-  - component: {fileID: 349600042}
-  - component: {fileID: 349600046}
   - component: {fileID: 349600041}
   - component: {fileID: 349600048}
   - component: {fileID: 349600049}
+  - component: {fileID: 349600050}
+  - component: {fileID: 349600051}
+  - component: {fileID: 349600052}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -634,33 +635,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454c104f71c7ebd45b3bf84eb01f9c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 349600046}
+  rb: {fileID: 349600050}
   cam: {fileID: 330585546}
   speed: 6
   turnSmoothTime: 0.1
---- !u!136 &349600042
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349600039}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &349600043
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -728,32 +706,6 @@ Transform:
   - {fileID: 2057232069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &349600046
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349600039}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &349600048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,12 +735,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStratergyName: Idle
-  BaseDamage: 5
   attackPoint: {fileID: 349600045}
+  BaseDamage: 10
   attackRange: 5.44
   Enemy:
     serializedVersion: 2
     m_Bits: 64
+  health: 100
+  gameOverCanvas: {fileID: 272747070}
+--- !u!54 &349600050
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349600039}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!136 &349600051
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349600039}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &349600052
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349600039}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 4.58
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,10 +1349,9 @@ GameObject:
   - component: {fileID: 884777017}
   - component: {fileID: 884777021}
   - component: {fileID: 884777016}
-  - component: {fileID: 884777022}
-  - component: {fileID: 884777023}
   - component: {fileID: 884777024}
   - component: {fileID: 884777025}
+  - component: {fileID: 884777026}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -1345,9 +1371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f663331d3a17847b69c855e583759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 349600045}
+  Player: {fileID: 349600039}
   speed: 6
   turnSmoothTime: 0.1
+  playerInRange: 0
 --- !u!135 &884777017
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1457,41 +1484,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &884777022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884777014}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542d20ec68eadfd43a1a91a9ce32ec1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 10
-  attackRange: 5
-  attackPoint: {fileID: 884777020}
-  Player:
-    serializedVersion: 2
-    m_Bits: 128
-  attackRate: 1
---- !u!114 &884777023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884777014}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed04e361fd8a7d4daf6b752ea812da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  enemyHealthSlider: {fileID: 1736125121}
-  playerTag: Player
 --- !u!65 &884777024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1528,6 +1520,38 @@ MonoBehaviour:
   Health: 50
   Name: Tyler
   type: 0
+  currentStratergyName: Idle
+  BaseDamage: 5
+  attackPoint: {fileID: 884777020}
+  attackRange: 2.23
+  Cooldown: 0
+--- !u!54 &884777026
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884777014}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1172907315
 GameObject:
   m_ObjectHideFlags: 0

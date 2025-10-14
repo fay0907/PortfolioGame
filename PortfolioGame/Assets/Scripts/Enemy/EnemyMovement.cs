@@ -4,12 +4,12 @@ using System;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform Player;
+    public GameObject Player;
     private NavMeshAgent agent;
 
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
-    private bool playerInRange = false;
+    public bool playerInRange = false;
     private Vector3 startPosition;
 
     void Start()
@@ -17,15 +17,14 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         startPosition = transform.position;
     }
-
    
     void Update()
     {
-        agent.SetDestination(Player.position);
+        // agent.SetDestination(Player.position);
         if (playerInRange)
         {
             // speler volgen
-            agent.SetDestination(Player.position);
+            agent.SetDestination(Player.transform.position);
         }
         else
         {

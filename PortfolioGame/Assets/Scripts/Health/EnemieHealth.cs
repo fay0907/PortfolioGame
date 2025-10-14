@@ -91,7 +91,6 @@ public class EnemieHealth : MonoBehaviour
             enemyHealthSlider.value = currentHealth;
 
         Debug.Log($"{name} took {damage} damage. Current health: {currentHealth}");
-
         if (currentHealth <= 0)
             Die();
     }

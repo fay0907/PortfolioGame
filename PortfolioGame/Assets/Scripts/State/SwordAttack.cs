@@ -7,10 +7,15 @@ public class SwordAttack : IFightStrategy
 
     public void ExecuteAttack(PlayerCharacter attacker, EnemyCharacter target)
     {
-        int damage = attacker.BaseDamage + attacker.RollDamage(3,7); // Base damage plus a random roll between 1 and 5
+        int damage = attacker.BaseDamage + attacker.RollDamage(3, 7); // Base damage plus a random roll between 1 and 5
         if (target.type == EnemyParameters.EnemyType.Beast) damage += 2; // Armored enemies take extra damage from sword attacks
-        
+
         Debug.Log($"{strategyName} attacks {target.Name} with a sword for {damage} damage!");
-        target.Health -= damage;
+        target.HitHandler(damage);
+    }
+    public void ExecuteBlock(PlayerCharacter defender, EnemyCharacter target)
+    {
+        defender.SetFightStrategy(new Block());
+        Debug.Log("You have switched to Block strategy!");
     }
 }
