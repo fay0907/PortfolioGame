@@ -8,19 +8,9 @@ public class EnemyParameters : MonoBehaviour
     {
         Beast,
         Undead,
-        Humanoid
+        Humanoid,
+        Archer
     }
     public int Health;
     public string Name;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
